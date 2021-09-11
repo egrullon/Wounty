@@ -34,24 +34,24 @@ A simple web evaluation script to automate the early recognition stages in Bug B
 
 ## Install:
 ```
-$ cd /opt
+cd /opt
 ```
 
 ### You can install cloning this Git Repository.
 ```
-$ sudo git clone https://github.com/egrullon/Wounty.git
+sudo git clone https://github.com/egrullon/Wounty.git
 ```
 ```
-$ sudo chmod +x Wounty/wounty.sh
+sudo chmod +x Wounty/wounty.sh
 ```
 
 ## Configuration:
 ```
-$ sudo ln -s /opt/Wounty/wounty.sh /usr/local/bin/wounty
+sudo ln -s /opt/Wounty/wounty.sh /usr/local/bin/wounty
 ```
 
 ## Usage:
 ```
-$ sudo wounty example.com
+sudo wounty example.com
 ```
 
