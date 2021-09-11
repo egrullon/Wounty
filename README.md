@@ -17,7 +17,7 @@ A simple web evaluation script to automate the early recognition stages in Bug B
 
 ## Additional Tools:
 ### You need to install
-- List itemwhatweb
+- whatweb
 - wafw00f
 - sslscan
 - assetfinder
