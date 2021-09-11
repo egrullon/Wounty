@@ -41,10 +41,13 @@ $ cd /opt
 ```
 $ sudo git clone https://github.com/egrullon/Wounty.git
 ```
+```
+$ sudo chmod +x Wounty/wounty.sh
+```
 
 ## Configuration:
 ```
-$ ln -s /opt/Wounty/wounty.sh /usr/local/bin/wounty
+$ sudo ln -s /opt/Wounty/wounty.sh /usr/local/bin/wounty
 ```
 
 ## Usage:
