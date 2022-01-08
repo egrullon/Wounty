@@ -11,7 +11,8 @@
 # Updated: 2022-01-08
 # egrullon@cystrong.com
 # www.cystrong.com
-# Description: Wounty is a simple web enumeration script that makes use of other popular tools to automate the early stages of recognition in Bug Bounty processes. This tool is very important as part of the Bug Bounties techniques.
+# Description: Wounty is a simple web enumeration script that makes use of other popular tools to automate the early stages of recognition in Bug Bounty processes.
+#              This tool is very important as part of the Bug Bounties techniques.
 
 # ANSI Colors
 re="\e[0;91m"
@@ -100,7 +101,7 @@ else
     if [[ -e "ip_$target.txt" ]]; then
         cat ip_$target.txt | xargs whois -h whois.cymru.com | awk 'NR == 2 { print $1 }' > asn_$target.txt
     else
-	    echo "The file ip_$target.txt was not create..."
+	echo "The file ip_$target.txt was not create..."
     fi
 
     # Assetfinder
@@ -119,7 +120,7 @@ else
         cat sub_domains_$target.txt | httprobe -c 75 2>/dev/null > sub_domains_alive_$target.txt 
         cat sub_domains_$target.txt | httprobe -s -p https:8000 -p https:8008 -p https:8080 -p https:8443 . -c 50 2>/dev/null > sub_domains_special_ports_$target.txt 
     else
-	    echo "The file dnsgen.txt was not create..."
+	echo "The file dnsgen.txt was not create..."
     fi    
 
     # Waybackurls
@@ -168,7 +169,7 @@ rule WountyRule: wounty_yara {
     meta:                                      
         Author      = "egrullon <Amix>"
 	Description = "Yara rule for detect posibles strings."		
-        Date        = "12/13/2021"                   
+        Date        = "2022-12-13"                   
                                                      
     strings:                                    
         $ = "pass"       nocase ascii          
