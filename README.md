@@ -1,7 +1,7 @@
 # Wounty
 
 ## Version:
-Wounty v1.1 (GNU/Linux x86_64).
+Wounty v1.2 (GNU/Linux x86_64).
 
 ## License:
 Copyright (C) 2021 egrullon \<Amix\>.
@@ -13,7 +13,8 @@ This program comes with ABSOLUTELY NO WARRANTY.
 This is free software and you are free to change and redistribute it.
 
 ## Description:
-A simple web evaluation script to automate the early recognition stages in Bug Bounty processes. This tool is very important as part of the Bug Bounties techniques.
+
+Wounty is a simple web enumeration script that makes use of other popular tools to automate the early stages of recognition in Bug Bounty processes. This tool is very important as part of the Bug Bounties techniques.
 
 ## Additional Tools:
 ### You need to install
@@ -31,6 +32,7 @@ A simple web evaluation script to automate the early recognition stages in Bug B
 - nmap
 - ffuf
 - seclists
+- yara
 
 ## Install:
 ```
