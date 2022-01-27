@@ -1,7 +1,7 @@
 # Wounty
 
 ## Version:
-Wounty v1.2 (GNU/Linux x86_64).
+Wounty v1.3 (GNU/Linux x86_64).
 
 ## License:
 Copyright (C) 2021 egrullon \<Amix\>.
