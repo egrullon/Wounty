@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Wounty v1.2 (GNU/Linux x86_64).
+# Wounty v1.3 (GNU/Linux x86_64).
 # Copyright (C) 2021 egrullon <Amix>.
 # License GPLv3+: GNU GPL version 3 or later <https://www.gnu.org/licenses/gpl-3.0.html>.
 # This program comes with ABSOLUTELY NO WARRANTY.
@@ -8,7 +8,7 @@
 
 # Author: egrullon <Amix>
 # Created: 2021-09-10
-# Updated: 2022-01-08
+# Updated: 2022-01-24
 # egrullon@cystrong.com
 # www.cystrong.com
 # Description: Wounty is a simple web enumeration script that makes use of other popular tools to automate the early stages of recognition in Bug Bounty processes.
@@ -35,7 +35,7 @@ banner() {
            ░░░   ░░░       ░░░░░░    ░░░░░░░░ ░░░░ ░░░░░    ░░░░░    ░░░░░███ 
                                                                      ███ ░███ 
                                                                     ░░██████  
-                                                                     ░░░░░░  ${re}v1.2${wh} ${reset}
+                                                                     ░░░░░░  ${re}v1.3${wh} ${reset}
     "     
     return 0
 }
@@ -49,22 +49,29 @@ trap ctrl_c INT
 usage() {
     clear
     banner
-    echo -e "\n${re}[${wh}*${re}] You need to put a valid Domain!! ${reset}"
-    echo -e "${re}[${wh}*${re}] Usage: sudo wounty example.com ${reset}"
+    echo
+    if [[ -n "$target" ]]; then
+        echo -e "[${re}*${wh}] ${re}$target ${wh}is not a valid Domain!! ${reset}"
+        echo -e "[${re}*${wh}] Usage: sudo wounty example.com ${reset}"
+        sleep 1
+    else
+        echo -e "[${re}*${wh}] You need to put a valid Domain!! ${reset}"
+        echo -e "[${re}*${wh}] Usage: sudo wounty example.com ${reset}"
+        sleep 1
+    fi
+    return 0;
 }
 
 validate_fqdn() {
     host $target 2>&1 > /dev/null
         if [[ $? == 0 ]]; then
+            echo
             echo -e "${re}Valid Target: ${re}${wh}${reset}"$target
         else
-	    echo
-    	    echo -e "[${re}*${wh}] ${re}$target ${wh}is not a valid FQDN... ${reset}"
-            echo -e "[${re}*${wh}] Usage: sudo wounty example.com ${reset}"
-	    sleep 1
+            usage
 	    exit
         fi
-    return 0;
+        return 0;
 }
 
 if [[ "$target" == '' ]]; then
@@ -169,7 +176,7 @@ rule WountyRule: wounty_yara {
     meta:                                      
         Author      = "egrullon <Amix>"
 	Description = "Yara rule for detect posibles strings."		
-        Date        = "2022-12-13"                   
+        Date        = "2021-12-13"                   
                                                      
     strings:                                    
         $ = "pass"       nocase ascii          
@@ -180,7 +187,19 @@ rule WountyRule: wounty_yara {
         $ = "json"       nocase ascii          
         $ = "back"       nocase ascii          
         $ = "secret"     nocase ascii          
-        $ = "exe" 	 nocase ascii          
+        $ = "exe" 	 nocase ascii
+        $ = "access"     nocase ascii
+        $ = "token"      nocase ascii
+        $ = "admin"      nocase ascii
+        $ = "aws"        nocase ascii          
+        $ = "v1"         nocase ascii
+        $ = "v2"         nocase ascii
+        $ = "v3"         nocase ascii
+        $ = "v4"         nocase ascii
+        $ = "oauth"      nocase ascii
+        $ = "dev"        nocase ascii
+        $ = "url"        nocase ascii
+        $ = "uri"        nocase ascii
                                                      
     condition:                                 
         (any of them)      
