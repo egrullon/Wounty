@@ -209,6 +209,7 @@ rule WountyRule: wounty_yara {
 EOF
     
     yara wounty_yara_rules.yar -r ../../$target > yara_data_$target.txt
+    rm -f wounty_yara_rules.yar
     echo    
     sleep 2
     echo -e "${re}All Done...${re}"

@@ -33,7 +33,7 @@ Wounty is a simple web enumeration script that makes use of other popular tools 
 - ffuf
 - yara
 
-## Install:
+## Normal Install:
 ```
 cd /opt
 ```
@@ -54,5 +54,34 @@ sudo ln -s /opt/Wounty/wounty.sh /usr/local/bin/wounty
 ## Usage:
 ```
 sudo wounty example.com
+```
+
+## Docker Install (from dockerhub)
+
+```
+docker pull egrullon/wounty:v3
+```
+
+## Docker Install (local)
+```
+cd /opt
+```
+```
+git clone https://github.com/egrullon/WountyContainer.git
+```
+```
+cd WountyContainer
+```
+### Build Docker Image:
+```
+docker build -t wounty:v3 .
+```
+### Run Docker Container:
+```
+docker run -it -v /tmp/:/opt/projects wounty:v3
+```
+### Usage:
+```
+wounty example.com
 ```
 
