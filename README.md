@@ -61,6 +61,9 @@ sudo wounty example.com
 ```
 docker pull egrullon/wounty:v3
 ```
+```
+docker run -it -v /tmp/:/opt/projects egrullon/wounty:v3
+```
 
 ## Docker Install (local)
 ```
@@ -72,11 +75,9 @@ git clone https://github.com/egrullon/WountyContainer.git
 ```
 cd WountyContainer
 ```
-### Build Docker Image:
 ```
 docker build -t wounty:v3 .
 ```
-### Run Docker Container:
 ```
 docker run -it -v /tmp/:/opt/projects wounty:v3
 ```
