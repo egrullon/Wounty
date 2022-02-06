@@ -59,10 +59,10 @@ sudo wounty example.com
 ## Docker Install (from dockerhub)
 
 ```
-docker pull egrullon/wounty:v3
+docker pull egrullon/wounty:v2
 ```
 ```
-docker run -it -v /tmp/:/opt/projects egrullon/wounty:v3
+docker run -it -v /tmp/:/opt/projects egrullon/wounty:v2
 ```
 
 ## Docker Install (local)
@@ -70,16 +70,16 @@ docker run -it -v /tmp/:/opt/projects egrullon/wounty:v3
 cd /opt
 ```
 ```
-git clone https://github.com/egrullon/WountyContainer.git
+sudo git clone https://github.com/egrullon/WountyContainer.git
 ```
 ```
 cd WountyContainer
 ```
 ```
-docker build -t wounty:v3 .
+docker build -t wounty:v2 .
 ```
 ```
-docker run -it -v /tmp/:/opt/projects wounty:v3
+docker run -it -v /tmp/:/opt/projects wounty:v2
 ```
 ### Usage:
 ```
