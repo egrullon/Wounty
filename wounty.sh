@@ -8,7 +8,7 @@
 
 # Author: egrullon <Amix>
 # Created: 2021-09-10
-# Updated: 2022-01-24
+# Updated: 2022-02-05
 # egrullon@cystrong.com
 # www.cystrong.com
 # Description: Wounty is a simple web enumeration script that makes use of other popular tools to automate the early stages of recognition in Bug Bounty processes.
@@ -165,8 +165,10 @@ else
     # FFUF
     echo -e "[${re}*${wh}] Fuzzing..."
     cd ../../fuzz
-    ffuf -v -s -c -w /usr/share/seclists/Discovery/Web-Content/raft-large-words.txt -u https://$target/FUZZ -t 100 2>/dev/null > ffuf_webcontent_$target.txt
-  
+    curl -fsL https://raw.githubusercontent.com/danielmiessler/SecLists/master/Discovery/Web-Content/raft-large-words.txt -o raft-large-words.txt
+    ffuf -v -s -c -w raft-large-words.txt -u https://$target/FUZZ -t 100 2>/dev/null > ffuf_webcontent_$target.txt
+    rm -f raft-large-words.txt
+
     # YARA Rules
     echo -e "[${re}*${wh}] Finding Strings with YARA Rules..."
     cd ../yara

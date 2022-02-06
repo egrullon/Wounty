@@ -31,7 +31,6 @@ Wounty is a simple web enumeration script that makes use of other popular tools 
 - masscan
 - nmap
 - ffuf
-- seclists
 - yara
 
 ## Install:
